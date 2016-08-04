@@ -6,17 +6,16 @@ This is a [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) fo
 
 The `bin/compile` script run webpack with the default configuration file (`webpack.config.js` in your main directory). To use the buildpack:
 
-1. Use the [multi buildpack](https://github.com/ddollar/heroku-buildpack-multi):
+1. Specify our buildpack as the priorized one, for now:
 
    ```bash
-   $ heroku config:set BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi
+   $ heroku buildpacks:set https://github.com/kreativgebiet/heroku-buildpack-webpack
    ```
 
-2. Configure your `.buildpacks` file:
+2. Add the `heroku/nodejs` buildpack back at `index=1`:
 
-   ```
-   https://github.com/heroku/heroku-buildpack-nodejs
-   https://github.com/jerrysu/heroku-buildpack-webpack
-   ```
+  ```bash
+  $ heroku buildpacks:add --index 1 heroku/nodejs
+  ```
 
-3. Deploy to Heroku.
+3. Deploy a new version of your app to Heroku.
