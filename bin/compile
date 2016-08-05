@@ -10,7 +10,5 @@ source $bp_dir/lib/common.sh
 export_env_dir $env_dir
 cd $build_dir
 
-NODE_ENV=production
-
 head "Building webpack bundle"
 $(npm bin)/webpack 
