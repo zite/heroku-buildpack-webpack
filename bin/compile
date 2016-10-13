@@ -10,5 +10,7 @@ source $bp_dir/lib/common.sh
 export_env_dir $env_dir
 cd $build_dir
 
-head "Building webpack bundle in production"
-NODE_ENV=production $(npm bin)/webpack 
+[ -z "$NODE_ENV" ] && echo "Setting NODE_ENV because unset" && NODE_ENV=production
+
+head "Building webpack bundle in $(NODE_ENV)"
+$(npm bin)/webpack 
