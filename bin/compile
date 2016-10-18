@@ -12,6 +12,6 @@ cd $build_dir
 
 [ -z "$NODE_ENV" ] && head "Setting NODE_ENV because unset" && NODE_ENV=production
 
-head "Building webpack bundle in $($NODE_ENV)"
+head "Building webpack bundle"
 
 $(npm bin)/webpack 
